@@ -93,7 +93,7 @@ All projects available at `https://github.com/kdelaro2`
 More info {#more-info}
 --------------------------------------------------------------------------------
 
-See full CV at https://github.com/kdelaro2/paf-514-cv-katedelarosa for more complete list of positions and publications.
+See full CV at https://github.com/kdelaro2/paf-514-cv-katedelarosa/cv.html for more complete list of positions and publications.
 
 
 Disclaimer {#disclaimer}
