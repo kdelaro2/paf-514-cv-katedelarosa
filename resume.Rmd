@@ -1,6 +1,6 @@
 ---
-title: Nick Strayer's Resume"
-author: Nick Strayer
+title: Kate De La Rosa's Resume"
+author: Kate De La Rosa
 date: "`r Sys.Date()`"
 output:
   pagedown::html_resume:
@@ -29,13 +29,13 @@ source('parsing_functions.R')
 
 # First let's get the data, filtering to only the items tagged as
 # Resume items
-position_data <- read_csv('positions.csv') %>% 
+position_data <- read.csv2(file('positions.csv', encoding="UTF-8"), sep=",", header = TRUE) %>% 
   filter(in_resume) %>% 
   mutate(
     # Build some custom sections by collapsing others
     section = case_when(
       section %in% c('research_positions', 'industry_positions') ~ 'positions', 
-      section %in% c('data_science_writings', 'by_me_press') ~ 'writings',
+      section %in% c('academic_articles') ~ 'writings',
       TRUE ~ section
     )
   ) 
@@ -54,11 +54,11 @@ Contact {#contact}
 
 
 
-- <i class="fa fa-envelope"></i> nick.strayer@gmail.com
-- <i class="fa fa-twitter"></i> NicholasStrayer
-- <i class="fa fa-github"></i> github.com/nstrayer
-- <i class="fa fa-link"></i> [nickstrayer.me](http://nickstrayer.me/)
-- <i class="fa fa-phone"></i> (734) 645-0110
+- <i class="fa fa-envelope"></i> kdelaro2@asu.edu
+- <i class="fa fa-twitter"></i> notrealtwitter
+- <i class="fa fa-github"></i> https://github.com/kdelaro2/paf-514-cv-katedelarosa
+- <i class="fa fa-link"></i> [https://github.com/kdelaro2/paf-514-cv-katedelarosa](https://github.com/kdelaro2/paf-514-cv-katedelarosa)
+- <i class="fa fa-phone"></i> (123) 456-7891
 
 
 
@@ -70,11 +70,11 @@ Language Skills {#skills}
 skills <- tribble(
   ~skill,               ~level,
   "R",                  5,
-  "Javascript (d3.js)", 4.5,
-  "Python",             4,
-  "Bash",               3.5,
+  "Javascript (d3.js)", 3,
+  "Python",             4.5,
+  "Bash",               3,
   "SQL",                3,
-  "C++",                3,
+  "C++",                3.5,
   "AWK",                3
 )
 build_skill_bars(skills)
@@ -85,18 +85,15 @@ build_skill_bars(skills)
 Open Source Contributions {#open-source}
 --------------------------------------------------------------------------------
 
-All projects available at `github.com/nstrayer/<name>`
+All projects available at `https://github.com/kdelaro2`
 
 
-- `shinysense`: R package to use sensor data in Shiny apps
-- `tuftesque`: Hugo theme (behind LiveFreeOrDichotomize.com)
-- `slid3r`: D3 add-on for fully svg slider inputs
-
+- `montyhall`: R package to solve the MontyHall problem 
 
 More info {#more-info}
 --------------------------------------------------------------------------------
 
-See full CV at nickstrayer.me/cv for more complete list of positions and publications.
+See full CV at https://github.com/kdelaro2/paf-514-cv-katedelarosa for more complete list of positions and publications.
 
 
 Disclaimer {#disclaimer}
@@ -104,7 +101,7 @@ Disclaimer {#disclaimer}
 
 Made w/ [**pagedown**](https://github.com/rstudio/pagedown). 
 
-Source code: [github.com/nstrayer/cv](https://github.com/nstrayer/cv).
+Source code: [https://github.com/kdelaro2/paf-514-cv-katedelarosa](https://github.com/kdelaro2/paf-514-cv-katedelarosa).
 
 Last updated on `r Sys.Date()`.
 
@@ -114,14 +111,11 @@ Last updated on `r Sys.Date()`.
 Main
 ================================================================================
 
-Nick Strayer {#title}
+Kate De La Rosa {#title}
 --------------------------------------------------------------------------------
 
 ```{r}
-intro_text <- "I have made [visualizations viewed by hundreds of thousands of people](https://www.nytimes.com/interactive/2016/08/26/us/college-student-migration.html), [sped up query times for 25 terabytes of data by an average of 4,800 times](https://livefreeordichotomize.com/2019/06/04/using_awk_and_r_to_parse_25tb/), and built [packages for R](https://github.com/nstrayer/shinysense) that let you [do magic](http://nickstrayer.me/dataDayTexas/).
-
-Currently searching for a data science position that allows me to build tools using visualization and machine learning to help people explore and understand their data. 
-"
+intro_text <- "I am a graduate student in the MS Program Evaluation and Data Analytics program at Arizona State University and I currently work for the Global Center for Applied Health Research as a Research Analyst."
 
 
 cat(sanitize_links(intro_text))
@@ -149,8 +143,9 @@ Selected Writing {data-icon=newspaper}
 --------------------------------------------------------------------------------
 
 
-```{r}
+```{r, eval=FALSE}
 position_data %>% print_section('writings')
 ```
+
 
 
